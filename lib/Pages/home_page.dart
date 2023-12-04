@@ -24,7 +24,6 @@ class HomeScreen extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           child: Stack(
             children: [
-
               // Left side container
               Align(
                 alignment: const AlignmentDirectional(3, -0.3),
@@ -71,6 +70,37 @@ class HomeScreen extends StatelessWidget {
                   decoration: const BoxDecoration(
                     color: Colors.transparent,
                   ),
+                ),
+              ),
+
+              // Main UI
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                child: const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Location
+                    Text(
+                      'Addis Ababa , Ethiopia',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+
+                    // Good Morning staff
+                    Text(
+                      'Good Morning',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
               )
             ],
