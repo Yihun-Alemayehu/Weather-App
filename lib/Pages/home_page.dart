@@ -6,14 +6,61 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/bloc/weather_bloc_bloc.dart';
 
+DateTime now = DateTime.now();
+int hour = now.hour;
+//late String message;
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  // String imagePicker (int code){
-  //   switch(true) {
-  //     case 
-  //   }
-  // }
+  Widget getImage(int code) {
+    switch (code) {
+      case >= 200 && < 300:
+        return Image.asset(
+          'assets/1.png',
+        );
+      case >= 300 && < 400:
+        return Image.asset(
+          'assets/2.png',
+        );
+      case >= 500 && < 600:
+        return Image.asset(
+          'assets/3.png',
+        );
+      case >= 600 && < 700:
+        return Image.asset(
+          'assets/4.png',
+        );
+      case >= 700 && < 800:
+        return Image.asset(
+          'assets/5.png',
+        );
+      case == 800:
+        return Image.asset(
+          'assets/6.png',
+        );
+      case > 800:
+        return Image.asset(
+          'assets/7.png',
+        );
+      default:
+        return Image.asset(
+          'assets/13.png',
+        );
+    }
+  }
+
+  String greating(int hour) {
+    if (hour >= 5 && hour < 12) {
+      return 'Good morning';
+    } else if (hour >= 12 && hour < 17) {
+      return 'Good Afternoon';
+    } else if (hour >= 17 && hour < 24) {
+      return 'Good Evening';
+    } else {
+      return 'Good night ';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -104,9 +151,9 @@ class HomeScreen extends StatelessWidget {
                           ),
 
                           // Good Morning staff
-                          const Text(
-                            'Good Morning',
-                            style: TextStyle(
+                          Text(
+                            greating(hour),
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 25,
                               fontWeight: FontWeight.bold,
@@ -114,10 +161,7 @@ class HomeScreen extends StatelessWidget {
                           ),
 
                           // Image for temperature
-                          Image.asset(
-                            
-                            'assets/2.png',
-                          ),
+                          getImage(state.weather.weatherConditionCode!),
 
                           // Temperature
                           Center(
@@ -165,7 +209,7 @@ class HomeScreen extends StatelessWidget {
                             height: 30,
                           ),
 
-                          // Bottom of Main UI 
+                          // Bottom of Main UI
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
