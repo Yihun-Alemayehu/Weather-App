@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/Pages/home_page.dart';
 
 void main() {
   runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: HomePage(),
   ));
 }
@@ -11,11 +13,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home Page'),
-      ),
-      body: Container(),
-    );
+    return const HomeScreen();
   }
 }
