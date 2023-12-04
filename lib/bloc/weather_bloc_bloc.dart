@@ -16,10 +16,10 @@ class WeatherBlocBloc extends Bloc<WeatherBlocEvent, WeatherBlocState> {
           API_KEY,
           language: Language.ENGLISH,
         );
-        Position position = await Geolocator.getCurrentPosition();
+        //Position position = await Geolocator.getCurrentPosition();
         Weather weather = await weatherFactory.currentWeatherByLocation(
-          position.latitude,
-          position.longitude,
+          event.position.latitude,
+          event.position.longitude,
         );
         emit(WeatherBlocSuccess(weather));
       } catch (e) {
